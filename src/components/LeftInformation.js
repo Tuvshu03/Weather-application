@@ -1,10 +1,10 @@
 import React from "react"
-const Information = (props) => {
+const leftInformation = (props) => {
     const {weather, selectedCity} = props;
     return (
-        <section className="relative flex flex-1 items-center justify-center">
+        <section className="relative flex ">
           <div className="relative flex w-[567px] justify-center z-10">
-            <div className="z-20 w-103 h-207 rounded-10.5 overflow-hidden shadow-lg bg-white/75">
+            <div className="z-20 w-103 h-207 rounded-10.5 overflow-hidden shadow-lg bg-white/75 rounded-[48px]">
               <div className="space-y-12 px-10 py-14 backdrop-blur-lg">
                 <div className="flex justify-between items-center">
                   <div className="space-y-2">
@@ -38,13 +38,13 @@ const Information = (props) => {
               </div>
               <div className="px-12">
                 <div className="text-transparent bg-clip-text font-extrabold text-[110px] -mt-10 bg-gradient-to-b from-black to-white">
-                  {weather.max-temp}°
+                  {weather.maxTemp}°
                 </div>
                 <h6
                   className="font-extrabold mb-12 h-6px"  
                   // style={"color: rgb(119, 124, 206)"}
                 >
-                  {condition}
+                  {weather.condition}
                 </h6>
               </div>
             </div>
@@ -52,4 +52,4 @@ const Information = (props) => {
         </section>
     )
 }
-export default Information
+export default leftInformation
