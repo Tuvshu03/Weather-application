@@ -43,7 +43,7 @@ const Search = (props) => {
 
   const handleCityClick = (city) => {
     setSelectedCity(city.split(",")[0]);
-    console.log("city:", city.split(",")[0]);
+    setCitiesSearch("");
   };
   return (
     <div className="absolute w-[527px] h-[80px] z-30 top-[5%] bg-[#FFFFFF] rounded-full pl-[24px]">
