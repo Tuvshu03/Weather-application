@@ -1,37 +1,36 @@
-  import React from "react";
+import React from "react";
 
-  const leftInformation = (props) => {
-    const { weather, selectedCity, weatherLoading} = props;
+const leftInformation = (props) => {
+  const { weather, selectedCity, weatherLoading } = props;
 
-    const LeftCondition = () =>{
-        const conditions = weather.condition.toLowerCase()
-    
-        if(conditions.includes("cloud")){
-            return <img src="./image/sun.cloud.png"/>
-        }
-        else if(conditions.includes("rain")){
-            return <img src="./image/sun.rain.png"/>
-        }
-        else if(conditions.includes("snow")){
-            return <img src="./image/sun.snow.png"/>
-        }
-        else if(conditions.includes("wind")){
-            return <img src="./image/sun.wind.png"/>
-        }
-        else {
-            return <img src="./image/Sun.png"/>
-        }
+  const LeftCondition = () => {
+    const conditions = weather.condition.toLowerCase();
+
+    if (conditions.includes("cloud")) {
+      return <img src="./image/sun.cloud.png" />;
+    } else if (conditions.includes("rain")) {
+      return <img src="./image/sun.rain.png" />;
+    } else if (conditions.includes("snow")) {
+      return <img src="./image/sun.snow.png" />;
+    } else if (conditions.includes("wind")) {
+      return <img src="./image/sun.wind.png" />;
+    } else {
+      return <img src="./image/Sun.png" />;
     }
+  };
 
-    if(weatherLoading){
-      return <p>loading</p>
-    }
-
+  if (weatherLoading) {
+    return (
+      <div>
+        <img src="./image/loading.png" />
+      </div>
+    );
+  } else {
     return (
       <section className="relative flex ">
         <div className="relative flex w-[567px] justify-center z-10">
-          <div className="z-20 w-103 h-207 rounded-10.5 overflow-hidden shadow-lg bg-white/75 rounded-[48px]">
-            <div className="space-y-12 px-10 py-14 backdrop-blur-lg">
+          <div className="z-20 w-103 h-207 shadow-lg bg-white/75 rounded-[48px] backdrop-blur-md">
+            <div className="space-y-12 px-10 py-14">
               <div className="flex justify-between items-center">
                 <div className="space-y-2">
                   <h4 className="text-gray-400">{weather.date}</h4>
@@ -58,27 +57,22 @@
                   </g>
                 </svg>
               </div>
-              <div>
-                {LeftCondition()} </div>
-              {/* <LeftCondition weather={weather}/> */}
+              <div>{LeftCondition()} </div>
             </div>
             <div className="px-12">
               <div className="text-transparent bg-clip-text font-extrabold text-[110px] -mt-10 bg-gradient-to-b from-black to-white">
                 {weather.maxTemp}°
               </div>
-              <h6
-                className="font-extrabold mb-12 h-6px text-yellow-400"
-                // style={"color: rgb(119, 124, 206)"}
-              >
+              <h6 className="font-extrabold mb-12 h-6px">
                 {weather.condition}
               </h6>
             </div>
           </div>
-          <div className="absolute -top-10 -left-10">
+          <div className="absolute -top-16 -left-16 bg-radial-gradient">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="128"
-              height="128"
+              width="176"
+              height="176"
               viewBox="0 0 176 176"
               fill="none"
             >
@@ -101,7 +95,7 @@
                   gradientTransform="translate(88 88) rotate(90) scale(88)"
                 >
                   <stop stopColor="white" />
-                  <stop offset="1" stopolor="white" stopOpacity="0" />
+                  <stop offset="1" stopColor="white" stopOpacity="0" />
                 </radialGradient>
               </defs>
             </svg>
@@ -109,5 +103,6 @@
         </div>
       </section>
     );
-  };
-  export default leftInformation;
+  }
+};
+export default leftInformation;

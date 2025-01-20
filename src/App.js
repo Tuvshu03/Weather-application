@@ -15,6 +15,7 @@
           { method: "get", headers: { "Content-Type": "application/json" } }
         );
         const result = await response.json();
+        setWeatherLoading(false);
         const weatherData = {
           maxTemp: result.forecast.forecastday[0].day.maxtemp_c,
           minTemp: result.forecast.forecastday[0].day.mintemp_c,
@@ -24,11 +25,11 @@
         setWeather(weatherData);
       } catch (error) {
         console.log("Error", error);
-        setWeatherLoading(false);
       } finally {
         setWeatherLoading(false);
       }
     };
+  
     useEffect(() => {
       getWeather();
     }, [selectedCity]);

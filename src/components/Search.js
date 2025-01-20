@@ -1,8 +1,8 @@
-import { citiesFilter } from "./Filter";
+import { citiesFilter } from "../utils/Filter";
 import React, { useState, useEffect } from "react";
 
 const Search = (props) => {
-  const { setSelectedCity } = props;
+  const { setSelectedCity} = props;
   const [citiesSearch, setCitiesSearch] = useState("");
   const [filteredData, setFilteredData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -64,7 +64,7 @@ const Search = (props) => {
             </g>
           </svg>
         </div>
-        <div className="">
+        <div>
           <input
             disabled={loading}
             onChange={handleChange}
@@ -74,7 +74,6 @@ const Search = (props) => {
           ></input>
         </div>
       </div>
-      {loading && <p>loading...</p>}
       <div className="rounded-[12px] bg-white m-[16px]">
         {citiesSearch.length > 0 &&
           filteredData.map((city, index) => {
@@ -82,9 +81,8 @@ const Search = (props) => {
               <div
                 onClick={() => handleCityClick(city)}
                 key={index}
-                className="flex items-center"
+                className="flex items-center cursor-pointer mt-3"
               >
-                {" "}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="40"
